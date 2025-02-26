@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace GHLearning.ThreeLayer.Core;
 
@@ -22,6 +18,7 @@ internal class AesCBCCryptography : IAesCryptography
 		using StreamReader sr = new StreamReader(cs);
 		return sr.ReadToEnd();  // 返回明文
 	}
+
 	public string Encrypt(string plainText, string key, string iv)
 	{
 		using Aes aesAlg = Aes.Create();

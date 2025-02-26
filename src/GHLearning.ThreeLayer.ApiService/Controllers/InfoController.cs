@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Net;
 using System.Net.Sockets;
-using System.Net;
 using System.Reflection;
+
+using Microsoft.AspNetCore.Mvc;
 
 namespace GHLearning.ThreeLayer.ApiService.Controllers;
 

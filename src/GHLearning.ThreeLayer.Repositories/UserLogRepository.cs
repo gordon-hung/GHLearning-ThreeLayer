@@ -4,7 +4,7 @@ using GHLearning.ThreeLayer.Repositories.Entities;
 
 namespace GHLearning.ThreeLayer.Repositories;
 
-class UserLogRepository(
+internal class UserLogRepository(
 	SampleContext sampleContext,
 	ISequentialGuidGenerator sequentialGuidGenerator) : IUserLogRepository
 {

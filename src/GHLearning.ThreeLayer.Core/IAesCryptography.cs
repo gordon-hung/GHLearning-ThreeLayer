@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GHLearning.ThreeLayer.Core;
+﻿namespace GHLearning.ThreeLayer.Core;
 
 public interface IAesCryptography
 {

@@ -6,7 +6,7 @@ using MediatR;
 
 namespace GHLearning.ThreeLayer.Services.User;
 
-class UserAddRequestHandler(
+internal class UserAddRequestHandler(
 	TimeProvider timeProvider,
 	IPasswordHasher passwordHasher,
 	IUserRepository userRepository,

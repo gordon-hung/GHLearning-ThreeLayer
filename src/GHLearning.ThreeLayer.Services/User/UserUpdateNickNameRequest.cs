@@ -2,6 +2,6 @@
 
 namespace GHLearning.ThreeLayer.Services.User;
 
-public record UserLoginRequest(
+public record UserUpdateNickNameRequest(
 	string Account,
-	string Password) : IRequest<UserLoginResponse>;
+	string NickName) : IRequest;

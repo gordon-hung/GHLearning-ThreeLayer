@@ -3,5 +3,6 @@
 public enum UserLogEvent
 {
 	Created = 1,
-	Updated = 2
+	Updated = 2,
+	UpdateNickName = 3,
 }

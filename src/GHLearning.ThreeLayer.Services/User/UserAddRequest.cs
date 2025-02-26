@@ -1,5 +1,4 @@
-﻿using GHLearning.ThreeLayer.Core.Enums;
-using MediatR;
+﻿using MediatR;
 
 namespace GHLearning.ThreeLayer.Services.User;
 

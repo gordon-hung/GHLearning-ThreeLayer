@@ -1,8 +1,6 @@
 ﻿using GHLearning.ThreeLayer.ApiService.ViewModels;
 using GHLearning.ThreeLayer.Services.User;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GHLearning.ThreeLayer.ApiService.Controllers;
@@ -32,7 +30,6 @@ public class UsersController : ControllerBase
 	/// <param name="account">The account.</param>
 	/// <returns></returns>
 	[HttpGet("{account}")]
-	[Authorize]
 	public async Task<UserGetViewModel?> UserGetAsncy(
 		[FromServices] IMediator mediator,
 		string account)
@@ -46,4 +43,22 @@ public class UsersController : ControllerBase
 			? null
 			: new UserGetViewModel(response.Account, response.Status, response.NickName);
 	}
+
+	/// <summary>
+	/// Users the update nick name asncy.
+	/// </summary>
+	/// <param name="mediator">The mediator.</param>
+	/// <param name="account">The account.</param>
+	/// <param name="source">The source.</param>
+	/// <returns></returns>
+	[HttpPatch("{account}/NickName")]
+	public Task UserUpdateNickNameAsncy(
+		[FromServices] IMediator mediator,
+		string account,
+		[FromBody] UserUpdateNickNameViewModel source)
+		=> mediator.Send(
+			request: new UserUpdateNickNameRequest(
+				account,
+				source.NickName),
+			cancellationToken: HttpContext.RequestAborted);
 }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GHLearning.ThreeLayer.Repositories;
 
-class UserRepository(
+internal class UserRepository(
 	SampleContext sampleContext,
 	IUserIdGenerator userIdGenerator) : IUserRepository
 {
@@ -41,6 +41,7 @@ class UserRepository(
 
 		return userId;
 	}
+
 	public async Task<UserGetInfo?> GetUserAsync(string account, CancellationToken cancellationToken = default)
 	{
 		account = account.ToLower();
@@ -71,5 +72,27 @@ class UserRepository(
 				user.Password,
 				(Core.Enums.UserStatus?)(user.UserStatus?.Status ?? (byte)Core.Enums.UserStatus.Disable) ?? Core.Enums.UserStatus.Disable,
 				user.UserInfo?.NickName ?? user.Account);
+	}
+
+	public async Task UpdateNickNameAync(UserUpdateNickName source, CancellationToken cancellationToken = default)
+	{
+		var user = await sampleContext.Users.SingleAsync(
+			x => x.Id == source.Id,
+			cancellationToken: cancellationToken)
+			.ConfigureAwait(false);
+
+		user.UpdatedAt = source.CreatedAt.UtcDateTime;
+
+		sampleContext.Users.Update(user);
+
+		var userInfo = await sampleContext.UserInfos.SingleAsync(
+			x => x.UserId == source.Id,
+			cancellationToken: cancellationToken)
+			.ConfigureAwait(false);
+
+		userInfo.NickName = source.NickName;
+
+		sampleContext.UserInfos.Update(userInfo);
+		await sampleContext.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
 	}
 }
