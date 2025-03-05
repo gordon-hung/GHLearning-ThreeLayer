@@ -1,5 +1,5 @@
-﻿using GHLearning.ThreeLayer.Repositories.Entities;
-using GHLearning.ThreeLayer.Services.User;
+﻿using GHLearning.ThreeLayer.Repository.Entities;
+using GHLearning.ThreeLayer.Service.Users;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -25,10 +25,10 @@ builder.Services.AddOpenApi();
 
 builder.Services
 	.AddCore()
-	.AddRepositories((sp, dbBuilder) => dbBuilder.UseMySql(
+	.AddRepository((sp, dbBuilder) => dbBuilder.UseMySql(
 		builder.Configuration.GetConnectionString("MySql"),
 		ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("MySql"))))
-	.AddServices();
+	.AddService();
 
 builder.Services.AddSingleton(TimeProvider.System);
 

@@ -1,5 +1,5 @@
 ﻿using GHLearning.ThreeLayer.ApiService.ViewModels;
-using GHLearning.ThreeLayer.Services.User;
+using GHLearning.ThreeLayer.Service.Users;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
