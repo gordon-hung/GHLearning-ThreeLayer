@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\GHLearning.ThreeLayer.Core\GHLearning.ThreeLayer.Core.csproj" />
-    <ProjectReference Include="..\src\GHLearning.ThreeLayer.Service\GHLearning.ThreeLayer.Service.csproj" />
+    <ProjectReference Include="..\..\src\GHLearning.ThreeLayer.Core\GHLearning.ThreeLayer.Core.csproj" />
+    <ProjectReference Include="..\..\src\GHLearning.ThreeLayer.Service\GHLearning.ThreeLayer.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>

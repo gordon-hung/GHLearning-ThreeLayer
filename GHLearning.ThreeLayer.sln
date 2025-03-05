@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHLearning.ThreeLayer.Repos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHLearning.ThreeLayer.Service", "src\GHLearning.ThreeLayer.Service\GHLearning.ThreeLayer.Service.csproj", "{0B8F304B-3B0F-B12B-27D1-D20C58834C5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHLearning.ThreeLayer.ServiceTest", "GHLearning.ThreeLayer.ServiceTest\GHLearning.ThreeLayer.ServiceTest.csproj", "{FF3E378F-4D5F-4CAE-AD46-D15354FD3D0B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHLearning.ThreeLayer.ServiceTest", "test\GHLearning.ThreeLayer.ServiceTest\GHLearning.ThreeLayer.ServiceTest.csproj", "{C1913687-34BE-5BA5-EBA3-34BC0DB3848C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,10 +45,10 @@ Global
 		{0B8F304B-3B0F-B12B-27D1-D20C58834C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B8F304B-3B0F-B12B-27D1-D20C58834C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B8F304B-3B0F-B12B-27D1-D20C58834C5A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF3E378F-4D5F-4CAE-AD46-D15354FD3D0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF3E378F-4D5F-4CAE-AD46-D15354FD3D0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF3E378F-4D5F-4CAE-AD46-D15354FD3D0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF3E378F-4D5F-4CAE-AD46-D15354FD3D0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1913687-34BE-5BA5-EBA3-34BC0DB3848C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1913687-34BE-5BA5-EBA3-34BC0DB3848C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1913687-34BE-5BA5-EBA3-34BC0DB3848C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1913687-34BE-5BA5-EBA3-34BC0DB3848C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,7 +59,7 @@ Global
 		{8EC5BE2D-395E-48BC-90E7-E7441D0F506E} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{864F031F-A0D9-E32F-AFFB-23D2FC03CC39} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{0B8F304B-3B0F-B12B-27D1-D20C58834C5A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
-		{FF3E378F-4D5F-4CAE-AD46-D15354FD3D0B} = {4CA97A3D-BF1E-4456-A1C3-A311C9F151B2}
+		{C1913687-34BE-5BA5-EBA3-34BC0DB3848C} = {4CA97A3D-BF1E-4456-A1C3-A311C9F151B2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A11516AD-8D23-44F1-8D99-C13ED1D5C1FD}
