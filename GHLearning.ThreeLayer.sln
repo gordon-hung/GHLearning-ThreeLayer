@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHLearning.ThreeLayer.Servi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHLearning.ThreeLayer.ServiceTest", "test\GHLearning.ThreeLayer.ServiceTest\GHLearning.ThreeLayer.ServiceTest.csproj", "{C1913687-34BE-5BA5-EBA3-34BC0DB3848C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHLearning.ThreeLayer.RepositoryTest", "test\GHLearning.ThreeLayer.RepositoryTest\GHLearning.ThreeLayer.RepositoryTest.csproj", "{900541FE-0A4B-48E4-9DA5-A10FBBD9DC28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{C1913687-34BE-5BA5-EBA3-34BC0DB3848C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1913687-34BE-5BA5-EBA3-34BC0DB3848C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1913687-34BE-5BA5-EBA3-34BC0DB3848C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{900541FE-0A4B-48E4-9DA5-A10FBBD9DC28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{900541FE-0A4B-48E4-9DA5-A10FBBD9DC28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{900541FE-0A4B-48E4-9DA5-A10FBBD9DC28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{900541FE-0A4B-48E4-9DA5-A10FBBD9DC28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{864F031F-A0D9-E32F-AFFB-23D2FC03CC39} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{0B8F304B-3B0F-B12B-27D1-D20C58834C5A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{C1913687-34BE-5BA5-EBA3-34BC0DB3848C} = {4CA97A3D-BF1E-4456-A1C3-A311C9F151B2}
+		{900541FE-0A4B-48E4-9DA5-A10FBBD9DC28} = {4CA97A3D-BF1E-4456-A1C3-A311C9F151B2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A11516AD-8D23-44F1-8D99-C13ED1D5C1FD}

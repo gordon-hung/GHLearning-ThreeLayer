@@ -12,11 +12,17 @@ internal class UserRepository(
 	public async Task<string> AddAync(UserAdd source, CancellationToken cancellationToken = default)
 	{
 		var userId = await userIdGenerator.NewIdAsync(cancellationToken).ConfigureAwait(false);
+		var account = source.Account.ToLower();
+
+		if (await sampleContext.Users.AnyAsync(user => user.Account == account).ConfigureAwait(false))
+		{
+			throw new DbUpdateException();
+		}
 
 		var user = new User
 		{
 			Id = userId,
-			Account = source.Account.ToLower(),
+			Account = account,
 			Password = source.Password,
 			CreatedAt = source.CreatedAt.UtcDateTime,
 			UpdatedAt = source.CreatedAt.UtcDateTime,
