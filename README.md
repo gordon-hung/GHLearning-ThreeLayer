@@ -1,21 +1,56 @@
 # GHLearning-ThreeLayer
-Gordon Hung Learning ThreeLayer
 
-The three-tier architecture model, which is the fundamental framework for the logical design model, segments an application's components into three tiers of services. These tiers do not necessarily correspond to physical locations on various computers on a network, but rather to logical layers of the application. How the pieces of an application are distributed in a physical topology can change, depending on the system requirements.
+**Gordon Hung Learning ThreeLayer**
+
+三層架構模型是邏輯設計的基礎框架，將應用程式的組件劃分為三個層級。這些層級不一定對應到網路上不同計算機的實體位置，而是應用程式的邏輯層級。應用程式的物理拓撲可以根據系統需求而有所變化。
 
 ## 1. ApiService
-- ApiService typically refers to a service layer responsible for handling API requests and responses. It's the part of your application that exposes endpoints for the client to interact with the backend system.
-- It usually processes HTTP requests (like GET, POST, etc.), invokes business logic or other services, and returns the result to the client in a structured format, typically JSON.
+- **角色**：ApiService 是應用程式的 **表示層（Presentation Layer）**，負責處理來自客戶端的 API 請求並返回相應的結果。
+- **功能**：它接收來自客戶端（如網頁、行動應用等）的 HTTP 請求，調用業務邏輯或服務層，並將處理結果返回給客戶端。通常會以 JSON 格式結構化返回數據。
+- **責任**：
+  - 處理 HTTP 請求（如 GET、POST、PUT、DELETE 等）並轉發至相應的服務方法。
+  - 驗證請求的有效性並返回錯誤或成功的訊息。
+  - 將服務層的結果格式化為 JSON 並返回給客戶端。
 
 ## 2. Core
-- Core refers to the foundational part of an application that contains the essential and shared components. This may include cross-cutting concerns like configuration settings, utility functions, common interfaces, or shared services used by various parts of the application.
-- In some applications, the Core layer could also include essential infrastructure for the app, such as logging, authentication, or dependency injection.
+- **角色**：Core 是應用程式的基礎層，包含了應用程式的核心邏輯、共享組件和公共接口。
+- **功能**：這一層定義了應用程式的核心商業邏輯、共享功能、接口和服務。Core 層為其他層提供了共同的功能或抽象，讓系統更加模組化且容易維護。
+- **責任**：
+  - 定義公共的接口（例如：`IUserRepository`、`IUserService`），讓其他層來實作。
+  - 提供跨應用程式使用的功能，比如配置設置、依賴注入、日誌記錄、認證等。
+  - 集中管理應用層的邏輯，讓其他層可以共用。
+
 ## 3. Migrations
-- Migrations are related to database schema management, especially in Object-Relational Mapping (ORM) frameworks like Entity Framework in .NET.
-- When you modify your data models (e.g., changing a class or adding new properties), migrations help manage the changes to the database schema automatically by generating SQL scripts or commands that update the database structure.
-## 4. Repositories
-- Repositories implement the Repository design pattern, which is used to abstract away data access logic. Instead of directly interacting with the database, the application interacts with repositories to handle CRUD (Create, Read, Update, Delete) operations.
-- Repositories provide a clean separation between the business logic and data access, making the application more maintainable and testable.
+- **角色**：Migrations 負責管理 **資料庫模式** 的變更，特別是當使用 **物件關聯映射（ORM）** 框架，如 Entity Framework 時，Migrations 用來自動化資料庫結構的更新。
+- **功能**：當資料模型（例如類別或屬性）發生變更時，Migrations 會生成相應的 SQL 指令或命令，來更新資料庫結構。
+- **責任**：
+  - 根據資料模型的變更生成資料庫遷移腳本，修改資料庫結構。
+  - 確保資料庫結構與應用程式中的模型保持一致。
+  - 在資料庫升級過程中保證資料結構的一致性，讓開發人員可以輕鬆應用這些變更。
+
+## 4. Repository
+- **角色**：Repository 層實現了 **Repository 設計模式**，負責將資料存取邏輯與業務邏輯層分離。應用程式不直接與資料庫交互，而是通過 Repository 層來處理 CRUD（創建、讀取、更新、刪除）操作。
+- **功能**：這一層封裝了資料庫交互邏輯，提供統一的資料操作接口，讓其他層只需與 Repository 進行交互，而不需要知道底層的資料存取實現。
+- **責任**：
+  - 提供資料庫的操作接口，實現資料存取的 CRUD 操作。
+  - 隔離資料庫的細節，使業務邏輯層（Service）不需要直接處理資料庫邏輯。
+  - 使資料存取邏輯更加可測試，例如可以使用模擬（Mock）來進行單元測試。
+
 ## 5. Services
-- Services encapsulate the core business logic of the application. These are the components where the actual functionality (like calculations, validations, or processing) is performed.
-- Services typically interact with repositories to fetch or store data and perform the necessary operations, returning results to controllers (or API layers) or other consumers.
+- **角色**：Service 層包含應用程式的 **業務邏輯層（Business Logic Layer）**，它負責執行具體的業務邏輯，並與 Repository 層交互進行數據存取操作。
+- **功能**：服務層實現應用程式的商業邏輯，它與 Repository 層交互來檢索或修改數據，並根據業務需求執行相應的操作，最終將處理結果返回給表示層（ApiService）。
+- **責任**：
+  - 實現具體的業務邏輯（例如，數據驗證、計算、業務流程處理等）。
+  - 通過調用 Repository 層來獲取或更新資料，並應用商業邏輯。
+  - 返回結果給 ApiService 層或其他消費者，作為最終輸出。
+
+---
+
+### **總結：**
+
+在這個三層架構中：
+- **ApiService** 層是表示層，處理來自客戶端的請求，調用業務邏輯並返回結果。
+- **Core** 層是核心層，定義了應用的基礎業務邏輯、公共接口和共享服務，為其他層提供基礎設施。
+- **Migrations** 層負責管理資料庫的遷移，保證資料庫結構與應用程式模型的一致性。
+- **Repository** 層負責實現資料庫操作，封裝與資料庫的交互邏輯。
+- **Service** 層處理具體的業務邏輯，並調用 Repository 層進行資料操作。
